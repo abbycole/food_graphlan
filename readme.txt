@@ -12,7 +12,7 @@
 source activate graphlan
 
 # navigate to correct dir
-cd /Users/abby/Documents/Projects/Food_tree_related/Diet_study_graphlan
+cd /Users/abby/Documents/Projects/food_graphlan
 
 # to make the plot with annotation file
 #graphlan_annotate.py --annot annotation.txt mct.tree.txt mct.tree.xml
@@ -22,7 +22,4 @@ cd /Users/abby/Documents/Projects/Food_tree_related/Diet_study_graphlan
 # bash run.sh
 
 # thoughts for further development
-Really need to flesh out the lower levels of the tree so that they are more detailed
-What is the best way to do this? It’s going to require some manual curation, obviously
-Add more L2 categories
-Should the tree only contain items that are in the dataset?
+# Should the tree only contain items that are in the dataset?
