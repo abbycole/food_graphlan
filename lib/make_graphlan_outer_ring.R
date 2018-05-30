@@ -1,7 +1,7 @@
 # Read in the food otu table
 library(tidyverse)
 
-food_otu <- read.csv(file = "/Users/abby/Documents/Projects/Food_Tree/R/output/mct.fiber.otu.txt", sep = "\t")
+food_otu <- read.csv(file = "/Users/abby/Documents/Projects/dietstudy/data/processed_food/fiber.txt", sep = "\t")
 food_otu <- food_otu %>%
   mutate(graphlan = taxonomy) %>%
   select(graphlan, everything())
@@ -11,7 +11,7 @@ food_otu$graphlan <- gsub(".*?;", "", food_otu$graphlan)
 
 # select just the columns we want
 food_otu <- food_otu %>%
-  select(graphlan, everything(), -taxonomy, -X.FOODID)
+  select(graphlan, everything(), -taxonomy, -X.FoodID)
 
 # if using g weight food otu table:
     # drop water because it's problematic when plotting
@@ -40,4 +40,4 @@ food_otu <- food_otu %>% select(index, label, ring, ring_height)
 
 
 # write table to txt file
-write.table(food_otu, file = "/Users/abby/Documents/Projects/Food_tree_related/Diet_study_graphlan/data/annotation.txt", sep= "\t", quote = F, row.names = F, col.names = F)
+write.table(food_otu, file = "/Users/abby/Documents/Projects/food_graphlan/data/annotation.txt", sep= "\t", quote = F, row.names = F, col.names = F)

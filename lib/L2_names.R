@@ -3,8 +3,10 @@
 # [L2 name] annotation_background_color [color matching L1]
 # [L2 name] annotation_font_size  6
 
+setwd("/Users/abby/Documents/Projects/dietstudy/")
+
 # Load taxonomy data
-tax <- read.table(file = "Documents/Projects/Food_Tree/R/output/mct.taxonomy.txt", sep = "\t", header = T)
+tax <- read.table(file = "../Food_Tree/R/output/mct.reduced.taxonomy.txt", sep = "\t", header = T)
 
 # Split levels
 tax_new <- tax %>% separate(taxonomy, into = paste("L", 1:6, sep = ""), sep = ";")
@@ -16,7 +18,7 @@ names <- tax_new %>% select(L1, L2)
 names <- names[!duplicated(names),]
 
 # load colors based on L1 naming
-colors <- read.table(file = "Documents/Projects/Food_tree_related/Diet_study_graphlan/L1_colors.txt", 
+colors <- read.table(file = "../food_graphlan/lib/L1_colors.txt", 
                      sep = "\t", 
                      header = T, 
                      comment = "",
@@ -62,7 +64,7 @@ L2_annotations <- L2_annotations[order(L2_annotations$L1),]
 L2_annotations <- L2_annotations %>% select(-c(L1, n))
 
 # write table to annot_2
-write.table(L2_annotations, "Documents/Projects/Food_tree_related/Diet_study_graphlan/annot_2.txt", sep = "\t", row.names = F, col.names = F, quote = F)
+write.table(L2_annotations, "../food_graphlan/data/annot_2.txt", sep = "\t", row.names = F, col.names = F, quote = F)
 
 
 # all of this ordering is for nothing, the order of the tree seems to dictate the way it's plotted. ARGH!
